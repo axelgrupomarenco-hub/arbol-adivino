@@ -1,0 +1,181 @@
+DOCUMENTO DE DISEÑO ORIENTADO A OBJETOS
+PROYECTO: Arbol Adivino
+
+1. Descripcion general
+
+Arbol Adivino es una aplicacion grafica desarrollada en Python que utiliza un
+arbol binario de decision para intentar adivinar una comida pensada por el
+usuario. El programa realiza preguntas cuya respuesta solo puede ser Si o No.
+Segun cada respuesta, el sistema avanza por una rama del arbol hasta llegar a
+una posible respuesta final.
+
+Si la aplicacion no adivina correctamente, el usuario puede ensenarle una nueva
+respuesta y una nueva pregunta que permita diferenciar esa respuesta de la
+respuesta incorrecta anterior. Luego el arbol se actualiza y se guarda
+automaticamente en un archivo JSON, de modo que el aprendizaje se conserva para
+futuras ejecuciones.
+
+2. Clases creadas
+
+2.1 Clase NodoDecision
+
+Archivo: clases/nodo.py
+
+Responsabilidad:
+Representar cada nodo del arbol binario de decision. Un nodo puede ser una
+pregunta o una respuesta final.
+
+Atributos principales:
+- texto: contiene la pregunta o respuesta del nodo.
+- es_pregunta: indica si el nodo es una pregunta o una respuesta.
+- si: referencia al hijo que se sigue cuando la respuesta es Si.
+- no: referencia al hijo que se sigue cuando la respuesta es No.
+
+Metodos principales:
+- es_hoja(): retorna True cuando el nodo es una respuesta final.
+- convertir_a_diccionario(): convierte el nodo y sus hijos a un diccionario
+  para guardarlo en JSON.
+- crear_desde_diccionario(): reconstruye un nodo a partir de datos cargados
+  desde un archivo.
+
+2.2 Clase ArbolDecision
+
+Archivo: clases/arbol_decision.py
+
+Responsabilidad:
+Controlar la logica principal del arbol, incluyendo el recorrido de preguntas,
+el aprendizaje y el acceso al nodo actual.
+
+Atributos principales:
+- raiz: nodo inicial del arbol.
+- nodo_actual: nodo donde se encuentra la partida en ese momento.
+
+Metodos principales:
+- reiniciar(): vuelve la partida al nodo raiz.
+- obtener_texto_actual(): retorna el texto del nodo actual.
+- actual_es_pregunta(): indica si el nodo actual es pregunta o respuesta.
+- responder(respuesta_si): avanza hacia la rama Si o No.
+- aprender(): reemplaza una respuesta incorrecta por una nueva pregunta con
+  dos ramas: la respuesta nueva y la respuesta anterior.
+- convertir_a_diccionario(): convierte todo el arbol a diccionario.
+- crear_desde_diccionario(): reconstruye un arbol completo desde archivo.
+
+2.3 Clase GestorArchivos
+
+Archivo: clases/gestor_archivos.py
+
+Responsabilidad:
+Encargarse del manejo de archivos JSON. Esta clase separa la lectura y escritura
+del arbol de la logica del juego y de la interfaz grafica.
+
+Atributos principales:
+- ruta_actual: archivo donde se guarda o desde donde se cargo el arbol actual.
+
+Metodos principales:
+- cargar_arbol(ruta): lee un archivo JSON, valida su contenido y crea un arbol.
+- guardar_arbol(arbol, ruta): guarda el arbol actual en formato JSON.
+
+2.4 Clase InterfazArbol
+
+Archivo: clases/interfaz.py
+
+Responsabilidad:
+Manejar la interfaz grafica del programa usando CustomTkinter. Esta clase muestra
+la pantalla inicial, las preguntas, los botones de Si y No, el resultado de la
+adivinanza y el formulario de aprendizaje.
+
+Atributos principales:
+- arbol: instancia de ArbolDecision que se usa durante la partida.
+- gestor: instancia de GestorArchivos para cargar y guardar.
+- frame_actual: contenedor grafico que se cambia segun la pantalla.
+
+Metodos principales:
+- mostrar_inicio(): muestra la pantalla inicial.
+- cargar_arbol(): permite seleccionar un archivo JSON.
+- guardar_arbol_manual(): guarda manualmente el arbol.
+- iniciar_partida(): reinicia el arbol y empieza una partida.
+- mostrar_nodo_actual(): muestra la pregunta actual o la adivinanza final.
+- responder_pregunta(): avanza por el arbol.
+- mostrar_formulario_aprendizaje(): solicita nuevos datos cuando falla.
+- guardar_aprendizaje(): valida los campos, actualiza el arbol y lo guarda.
+
+3. Relacion entre clases
+
+La clase InterfazArbol usa un objeto ArbolDecision para consultar la pregunta
+actual, avanzar por el arbol y agregar aprendizaje. ArbolDecision esta formado
+por objetos NodoDecision. Cada NodoDecision puede apuntar a otros dos nodos:
+uno para la respuesta Si y otro para la respuesta No.
+
+La clase GestorArchivos se comunica con ArbolDecision para guardar o cargar el
+arbol completo. De esta forma, la interfaz grafica no maneja directamente los
+detalles del archivo JSON.
+
+4. Representacion del arbol
+
+El arbol se representa mediante nodos enlazados. Cada nodo de pregunta tiene
+como maximo dos hijos: si y no. Los nodos de respuesta son hojas, por lo que no
+tienen hijos.
+
+Ejemplo:
+
+¿La comida suele servirse caliente?
+Si -> ¿Tiene carne como ingrediente principal?
+No -> ¿Es dulce?
+
+5. Recorrido del arbol
+
+Al iniciar una partida, el nodo actual se coloca en la raiz del arbol. Si el nodo
+actual es una pregunta, la interfaz muestra los botones Si y No. Cuando el usuario
+responde, el programa avanza hacia el hijo correspondiente.
+
+Si el nodo actual es una hoja, el sistema intenta adivinar preguntando si el
+usuario estaba pensando en esa respuesta.
+
+6. Aprendizaje del arbol
+
+Cuando el sistema falla al adivinar, se solicita:
+
+- La respuesta correcta.
+- Una pregunta que diferencie la respuesta correcta de la respuesta incorrecta.
+- Si para la nueva respuesta la contestacion a esa pregunta seria Si o No.
+
+Luego el nodo de respuesta incorrecta se reemplaza por un nodo de pregunta. Ese
+nuevo nodo guarda dos ramas: una hacia la nueva respuesta correcta y otra hacia
+la respuesta incorrecta anterior. La posicion de cada respuesta depende de si la
+respuesta correcta corresponde a Si o No.
+
+7. Guardado del arbol
+
+El arbol se convierte a un diccionario usando el metodo convertir_a_diccionario()
+de cada nodo. Despues, GestorArchivos lo guarda en formato JSON. Cada vez que
+el sistema aprende una nueva respuesta, el guardado se realiza automaticamente.
+
+8. Carga del arbol
+
+Para cargar un arbol, el usuario selecciona un archivo JSON desde la interfaz.
+GestorArchivos valida que el archivo exista, que no este vacio y que tenga un
+formato correcto. Luego reconstruye el arbol usando el metodo
+crear_desde_diccionario() de NodoDecision.
+
+Si el archivo tiene errores, el programa muestra un mensaje claro y continua con
+un arbol por defecto.
+
+9. Archivos de ejemplo
+
+El proyecto incluye cinco archivos JSON de ejemplo:
+
+- datos/comidas.json
+- datos/postres.json
+- datos/bebidas.json
+- datos/comidas_rapidas.json
+- datos/platos_tipicos.json
+
+Cada archivo contiene un arbol con mas de diez respuestas posibles, cumpliendo
+con el requisito de la tarea.
+
+10. Conclusion del diseño
+
+El proyecto separa responsabilidades para mantener el codigo ordenado. La logica
+del arbol esta separada de la interfaz grafica y del manejo de archivos. Esta
+organizacion permite comprender mejor el programa, facilitar cambios futuros y
+cumplir con los principios basicos de Programacion Orientada a Objetos.

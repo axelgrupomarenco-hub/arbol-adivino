@@ -10,14 +10,34 @@
             "si": {
                 "texto": "¿Es comida rapida?",
                 "es_pregunta": true,
-                "si": {"texto": "hamburguesa", "es_pregunta": false},
-                "no": {"texto": "taco", "es_pregunta": false}
+                "si": {
+                    "texto": "Es Tipico de Mexico",
+                    "es_pregunta": true,
+                    "si": {
+                        "texto": "Tacos",
+                        "es_pregunta": false
+                    },
+                    "no": {
+                        "texto": "hamburguesa",
+                        "es_pregunta": false
+                    }
+                },
+                "no": {
+                    "texto": "taco",
+                    "es_pregunta": false
+                }
             },
             "no": {
                 "texto": "¿Lleva arroz?",
                 "es_pregunta": true,
-                "si": {"texto": "arroz con pollo", "es_pregunta": false},
-                "no": {"texto": "pollo asado", "es_pregunta": false}
+                "si": {
+                    "texto": "arroz con pollo",
+                    "es_pregunta": false
+                },
+                "no": {
+                    "texto": "pollo asado",
+                    "es_pregunta": false
+                }
             }
         },
         "no": {
@@ -26,14 +46,26 @@
             "si": {
                 "texto": "¿Es redonda?",
                 "es_pregunta": true,
-                "si": {"texto": "pizza", "es_pregunta": false},
-                "no": {"texto": "lasagna", "es_pregunta": false}
+                "si": {
+                    "texto": "pizza",
+                    "es_pregunta": false
+                },
+                "no": {
+                    "texto": "lasagna",
+                    "es_pregunta": false
+                }
             },
             "no": {
                 "texto": "¿Es una sopa?",
                 "es_pregunta": true,
-                "si": {"texto": "sopa de verduras", "es_pregunta": false},
-                "no": {"texto": "pasta con salsa", "es_pregunta": false}
+                "si": {
+                    "texto": "sopa de verduras",
+                    "es_pregunta": false
+                },
+                "no": {
+                    "texto": "pasta con salsa",
+                    "es_pregunta": false
+                }
             }
         }
     },
@@ -46,14 +78,26 @@
             "si": {
                 "texto": "¿Es frio?",
                 "es_pregunta": true,
-                "si": {"texto": "helado de chocolate", "es_pregunta": false},
-                "no": {"texto": "brownie", "es_pregunta": false}
+                "si": {
+                    "texto": "helado de chocolate",
+                    "es_pregunta": false
+                },
+                "no": {
+                    "texto": "brownie",
+                    "es_pregunta": false
+                }
             },
             "no": {
                 "texto": "¿Tiene fruta?",
                 "es_pregunta": true,
-                "si": {"texto": "ensalada de frutas", "es_pregunta": false},
-                "no": {"texto": "galleta", "es_pregunta": false}
+                "si": {
+                    "texto": "ensalada de frutas",
+                    "es_pregunta": false
+                },
+                "no": {
+                    "texto": "galleta",
+                    "es_pregunta": false
+                }
             }
         },
         "no": {
@@ -62,14 +106,26 @@
             "si": {
                 "texto": "¿Es crujiente?",
                 "es_pregunta": true,
-                "si": {"texto": "papas tostadas", "es_pregunta": false},
-                "no": {"texto": "ensalada verde", "es_pregunta": false}
+                "si": {
+                    "texto": "papas tostadas",
+                    "es_pregunta": false
+                },
+                "no": {
+                    "texto": "ensalada verde",
+                    "es_pregunta": false
+                }
             },
             "no": {
                 "texto": "¿Viene en lata?",
                 "es_pregunta": true,
-                "si": {"texto": "atun", "es_pregunta": false},
-                "no": {"texto": "sandwich frio", "es_pregunta": false}
+                "si": {
+                    "texto": "atun",
+                    "es_pregunta": false
+                },
+                "no": {
+                    "texto": "sandwich frio",
+                    "es_pregunta": false
+                }
             }
         }
     }

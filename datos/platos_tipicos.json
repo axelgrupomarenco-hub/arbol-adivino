@@ -1,0 +1,51 @@
+{
+    "texto": "¿Es comun en desayunos?",
+    "es_pregunta": true,
+    "si": {
+        "texto": "¿Tiene arroz y frijoles?",
+        "es_pregunta": true,
+        "si": {"texto": "gallo pinto", "es_pregunta": false},
+        "no": {
+            "texto": "¿Tiene tortilla?",
+            "es_pregunta": true,
+            "si": {
+                "texto": "¿Tiene queso?",
+                "es_pregunta": true,
+                "si": {"texto": "tortilla con queso", "es_pregunta": false},
+                "no": {"texto": "chorreada", "es_pregunta": false}
+            },
+            "no": {"texto": "pan con natilla", "es_pregunta": false}
+        }
+    },
+    "no": {
+        "texto": "¿Es un plato fuerte?",
+        "es_pregunta": true,
+        "si": {
+            "texto": "¿Tiene arroz?",
+            "es_pregunta": true,
+            "si": {
+                "texto": "¿Tiene pollo?",
+                "es_pregunta": true,
+                "si": {"texto": "arroz con pollo", "es_pregunta": false},
+                "no": {"texto": "casado", "es_pregunta": false}
+            },
+            "no": {
+                "texto": "¿Tiene maiz?",
+                "es_pregunta": true,
+                "si": {"texto": "tamal", "es_pregunta": false},
+                "no": {"texto": "olla de carne", "es_pregunta": false}
+            }
+        },
+        "no": {
+            "texto": "¿Es dulce?",
+            "es_pregunta": true,
+            "si": {
+                "texto": "¿Tiene coco?",
+                "es_pregunta": true,
+                "si": {"texto": "cajeta de coco", "es_pregunta": false},
+                "no": {"texto": "miel de chiverre", "es_pregunta": false}
+            },
+            "no": {"texto": "picadillo", "es_pregunta": false}
+        }
+    }
+}

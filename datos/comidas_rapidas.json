@@ -1,0 +1,51 @@
+{
+    "texto": "¿Se come con las manos?",
+    "es_pregunta": true,
+    "si": {
+        "texto": "¿Tiene pan?",
+        "es_pregunta": true,
+        "si": {
+            "texto": "¿Tiene carne molida?",
+            "es_pregunta": true,
+            "si": {"texto": "hamburguesa", "es_pregunta": false},
+            "no": {
+                "texto": "¿Tiene salchicha?",
+                "es_pregunta": true,
+                "si": {"texto": "perro caliente", "es_pregunta": false},
+                "no": {"texto": "sandwich", "es_pregunta": false}
+            }
+        },
+        "no": {
+            "texto": "¿Tiene tortilla?",
+            "es_pregunta": true,
+            "si": {
+                "texto": "¿Va doblada?",
+                "es_pregunta": true,
+                "si": {"texto": "taco", "es_pregunta": false},
+                "no": {"texto": "quesadilla", "es_pregunta": false}
+            },
+            "no": {"texto": "alitas", "es_pregunta": false}
+        }
+    },
+    "no": {
+        "texto": "¿Se come con cuchara?",
+        "es_pregunta": true,
+        "si": {
+            "texto": "¿Tiene caldo?",
+            "es_pregunta": true,
+            "si": {"texto": "ramen rapido", "es_pregunta": false},
+            "no": {"texto": "arroz chino", "es_pregunta": false}
+        },
+        "no": {
+            "texto": "¿Es frito?",
+            "es_pregunta": true,
+            "si": {
+                "texto": "¿Es de papa?",
+                "es_pregunta": true,
+                "si": {"texto": "papas fritas", "es_pregunta": false},
+                "no": {"texto": "pollo frito", "es_pregunta": false}
+            },
+            "no": {"texto": "pizza", "es_pregunta": false}
+        }
+    }
+}

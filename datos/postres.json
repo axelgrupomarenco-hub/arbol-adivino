@@ -1,0 +1,56 @@
+{
+    "texto": "¿El postre normalmente se sirve frio?",
+    "es_pregunta": true,
+    "si": {
+        "texto": "¿Tiene leche o crema?",
+        "es_pregunta": true,
+        "si": {
+            "texto": "¿Se congela?",
+            "es_pregunta": true,
+            "si": {"texto": "helado", "es_pregunta": false},
+            "no": {
+                "texto": "¿Tiene caramelo?",
+                "es_pregunta": true,
+                "si": {"texto": "flan", "es_pregunta": false},
+                "no": {"texto": "arroz con leche", "es_pregunta": false}
+            }
+        },
+        "no": {
+            "texto": "¿Tiene fruta como base?",
+            "es_pregunta": true,
+            "si": {
+                "texto": "¿Lleva banano?",
+                "es_pregunta": true,
+                "si": {"texto": "banana split", "es_pregunta": false},
+                "no": {"texto": "gelatina con frutas", "es_pregunta": false}
+            },
+            "no": {"texto": "granizado", "es_pregunta": false}
+        }
+    },
+    "no": {
+        "texto": "¿Se hornea?",
+        "es_pregunta": true,
+        "si": {
+            "texto": "¿Tiene chocolate?",
+            "es_pregunta": true,
+            "si": {
+                "texto": "¿Es pequeno?",
+                "es_pregunta": true,
+                "si": {"texto": "galleta de chocolate", "es_pregunta": false},
+                "no": {"texto": "brownie", "es_pregunta": false}
+            },
+            "no": {
+                "texto": "¿Tiene manzana?",
+                "es_pregunta": true,
+                "si": {"texto": "pie de manzana", "es_pregunta": false},
+                "no": {"texto": "queque seco", "es_pregunta": false}
+            }
+        },
+        "no": {
+            "texto": "¿Es frito?",
+            "es_pregunta": true,
+            "si": {"texto": "churro", "es_pregunta": false},
+            "no": {"texto": "tres leches", "es_pregunta": false}
+        }
+    }
+}

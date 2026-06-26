@@ -1,0 +1,76 @@
+{
+    "texto": "¿La comida suele servirse caliente?",
+    "es_pregunta": true,
+    "si": {
+        "texto": "¿Tiene carne como ingrediente principal?",
+        "es_pregunta": true,
+        "si": {
+            "texto": "¿Se come normalmente con tortilla o pan?",
+            "es_pregunta": true,
+            "si": {
+                "texto": "¿Es comida rapida?",
+                "es_pregunta": true,
+                "si": {"texto": "hamburguesa", "es_pregunta": false},
+                "no": {"texto": "taco", "es_pregunta": false}
+            },
+            "no": {
+                "texto": "¿Lleva arroz?",
+                "es_pregunta": true,
+                "si": {"texto": "arroz con pollo", "es_pregunta": false},
+                "no": {"texto": "pollo asado", "es_pregunta": false}
+            }
+        },
+        "no": {
+            "texto": "¿Tiene queso derretido?",
+            "es_pregunta": true,
+            "si": {
+                "texto": "¿Es redonda?",
+                "es_pregunta": true,
+                "si": {"texto": "pizza", "es_pregunta": false},
+                "no": {"texto": "lasagna", "es_pregunta": false}
+            },
+            "no": {
+                "texto": "¿Es una sopa?",
+                "es_pregunta": true,
+                "si": {"texto": "sopa de verduras", "es_pregunta": false},
+                "no": {"texto": "pasta con salsa", "es_pregunta": false}
+            }
+        }
+    },
+    "no": {
+        "texto": "¿Es dulce?",
+        "es_pregunta": true,
+        "si": {
+            "texto": "¿Tiene chocolate?",
+            "es_pregunta": true,
+            "si": {
+                "texto": "¿Es frio?",
+                "es_pregunta": true,
+                "si": {"texto": "helado de chocolate", "es_pregunta": false},
+                "no": {"texto": "brownie", "es_pregunta": false}
+            },
+            "no": {
+                "texto": "¿Tiene fruta?",
+                "es_pregunta": true,
+                "si": {"texto": "ensalada de frutas", "es_pregunta": false},
+                "no": {"texto": "galleta", "es_pregunta": false}
+            }
+        },
+        "no": {
+            "texto": "¿Se come como acompanamiento?",
+            "es_pregunta": true,
+            "si": {
+                "texto": "¿Es crujiente?",
+                "es_pregunta": true,
+                "si": {"texto": "papas tostadas", "es_pregunta": false},
+                "no": {"texto": "ensalada verde", "es_pregunta": false}
+            },
+            "no": {
+                "texto": "¿Viene en lata?",
+                "es_pregunta": true,
+                "si": {"texto": "atun", "es_pregunta": false},
+                "no": {"texto": "sandwich frio", "es_pregunta": false}
+            }
+        }
+    }
+}

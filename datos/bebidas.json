@@ -1,0 +1,51 @@
+{
+    "texto": "¿La bebida se sirve caliente?",
+    "es_pregunta": true,
+    "si": {
+        "texto": "¿Tiene cafeina?",
+        "es_pregunta": true,
+        "si": {
+            "texto": "¿Tiene leche?",
+            "es_pregunta": true,
+            "si": {"texto": "capuchino", "es_pregunta": false},
+            "no": {"texto": "cafe negro", "es_pregunta": false}
+        },
+        "no": {
+            "texto": "¿Tiene chocolate?",
+            "es_pregunta": true,
+            "si": {"texto": "chocolate caliente", "es_pregunta": false},
+            "no": {
+                "texto": "¿Es una infusion?",
+                "es_pregunta": true,
+                "si": {"texto": "te de manzanilla", "es_pregunta": false},
+                "no": {"texto": "agua dulce", "es_pregunta": false}
+            }
+        }
+    },
+    "no": {
+        "texto": "¿Tiene gas?",
+        "es_pregunta": true,
+        "si": {
+            "texto": "¿Es oscura?",
+            "es_pregunta": true,
+            "si": {"texto": "cola", "es_pregunta": false},
+            "no": {"texto": "gaseosa de limon", "es_pregunta": false}
+        },
+        "no": {
+            "texto": "¿Tiene fruta?",
+            "es_pregunta": true,
+            "si": {
+                "texto": "¿Es citrica?",
+                "es_pregunta": true,
+                "si": {"texto": "limonada", "es_pregunta": false},
+                "no": {"texto": "batido de fresa", "es_pregunta": false}
+            },
+            "no": {
+                "texto": "¿Tiene leche?",
+                "es_pregunta": true,
+                "si": {"texto": "leche fria", "es_pregunta": false},
+                "no": {"texto": "agua", "es_pregunta": false}
+            }
+        }
+    }
+}

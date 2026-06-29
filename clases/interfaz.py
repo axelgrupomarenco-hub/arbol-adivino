@@ -85,7 +85,6 @@ class InterfazArbol(ctk.CTk):
 
         self.crear_boton(contenedor, "Iniciar partida", self.iniciar_partida)
         self.crear_boton(contenedor, "Cargar arbol desde archivo", self.cargar_arbol)
-        self.crear_boton(contenedor, "Guardar copia del arbol", self.guardar_arbol_manual)
         self.crear_boton(contenedor, "Salir", self.destroy, color="#555555")
 
         ctk.CTkLabel(
@@ -127,23 +126,6 @@ class InterfazArbol(ctk.CTk):
             )
             self.arbol = ArbolDecision()
             self.arbol.reiniciar()
-
-    def guardar_arbol_manual(self):
-        ruta = filedialog.asksaveasfilename(
-            title="Guardar copia del arbol",
-            defaultextension=".json",
-            filetypes=[("Archivos JSON", "*.json")]
-        )
-
-        if not ruta:
-            return
-
-        try:
-            self.gestor.guardar_arbol(self.arbol, ruta)
-            messagebox.showinfo("Guardado", "El arbol se guardo correctamente.")
-            self.mostrar_inicio()
-        except Exception as error:
-            messagebox.showerror("Error al guardar", f"No se pudo guardar el arbol.\n\n{error}")
 
     def iniciar_partida(self):
         self.arbol.reiniciar()

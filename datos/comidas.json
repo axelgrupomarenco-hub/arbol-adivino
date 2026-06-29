@@ -11,10 +11,10 @@
                 "texto": "¿Es comida rapida?",
                 "es_pregunta": true,
                 "si": {
-                    "texto": "Es Tipico de Mexico",
+                    "texto": "¿Es tipica de Mexico?",
                     "es_pregunta": true,
                     "si": {
-                        "texto": "Tacos",
+                        "texto": "taco",
                         "es_pregunta": false
                     },
                     "no": {
@@ -23,7 +23,7 @@
                     }
                 },
                 "no": {
-                    "texto": "taco",
+                    "texto": "burrito",
                     "es_pregunta": false
                 }
             },

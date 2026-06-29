@@ -85,7 +85,7 @@ class InterfazArbol(ctk.CTk):
 
         self.crear_boton(contenedor, "Iniciar partida", self.iniciar_partida)
         self.crear_boton(contenedor, "Cargar arbol desde archivo", self.cargar_arbol)
-        self.crear_boton(contenedor, "Guardar arbol actual", self.guardar_arbol_manual)
+        self.crear_boton(contenedor, "Guardar copia del arbol", self.guardar_arbol_manual)
         self.crear_boton(contenedor, "Salir", self.destroy, color="#555555")
 
         ctk.CTkLabel(
@@ -130,7 +130,7 @@ class InterfazArbol(ctk.CTk):
 
     def guardar_arbol_manual(self):
         ruta = filedialog.asksaveasfilename(
-            title="Guardar arbol",
+            title="Guardar copia del arbol",
             defaultextension=".json",
             filetypes=[("Archivos JSON", "*.json")]
         )
@@ -195,6 +195,7 @@ class InterfazArbol(ctk.CTk):
         self.crear_titulo("¡Adivine!", "El arbol encontro la respuesta correcta.")
         self.crear_boton(self.frame_actual, "Nueva partida", self.iniciar_partida)
         self.crear_boton(self.frame_actual, "Volver al inicio", self.mostrar_inicio, color="#555555")
+        self.crear_boton(self.frame_actual, "Salir", self.destroy, color="#555555")
 
     def mostrar_formulario_aprendizaje(self):
         self.limpiar_ventana()

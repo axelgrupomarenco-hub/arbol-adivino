@@ -45,6 +45,10 @@ class InterfazArbol(ctk.CTk):
         self.frame_actual = ctk.CTkFrame(self, corner_radius=12)
         self.frame_actual.pack(fill="both", expand=True, padx=24, pady=24)
 
+    def obtener_nombre_archivo_actual(self):
+        nombre = os.path.basename(self.gestor.ruta_actual)
+        return os.path.splitext(nombre)[0]
+
     def crear_titulo(self, texto, subtitulo=None):
         ctk.CTkLabel(
             self.frame_actual,
@@ -70,7 +74,7 @@ class InterfazArbol(ctk.CTk):
 
         self.lbl_archivo = ctk.CTkLabel(
             self.frame_actual,
-            text=f"Archivo actual: {os.path.basename(self.gestor.ruta_actual)}",
+            text=f"Archivo actual: {self.obtener_nombre_archivo_actual()}",
             font=("Arial", 13),
             text_color="#555555",
         )
